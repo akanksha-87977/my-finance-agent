@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Multi-Agent AI Financial Research & Portfolio Intelligence Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive, enterprise-grade financial intelligence platform powered by multiple AI agents that collaborate to analyze portfolios, assess risk, and provide investment recommendations.
 
-## Available Scripts
+![Platform Banner](https://img.shields.io/badge/AI-Powered-blue) ![Tech Stack](https://img.shields.io/badge/Tech-Full%20Stack-green) ![Status](https://img.shields.io/badge/Status-Production%20Ready-success)
 
-In the project directory, you can run:
+## 🌟 Features
 
-### `npm start`
+### Core Capabilities
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Multi-Agent AI System**: 5 specialized AI agents working collaboratively
+  - Market Research Agent
+  - News Sentiment Agent
+  - Risk Analysis Agent
+  - Portfolio Optimization Agent
+  - Report Generation Agent
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Real-time Portfolio Management**
+  - Live stock price tracking
+  - Portfolio performance analytics
+  - Asset allocation visualization
+  - Gain/loss tracking
 
-### `npm test`
+- **AI-Powered Analysis**
+  - Comprehensive portfolio analysis
+  - Risk assessment and scoring
+  - Sentiment analysis from news
+  - Investment recommendations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Interactive AI Chat Assistant**
+  - Natural language queries
+  - Context-aware responses
+  - Portfolio-specific insights
 
-### `npm run build`
+- **Professional Reporting**
+  - AI-generated reports
+  - PDF export capability
+  - Institutional-grade analysis
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Market Intelligence**
+  - Real-time stock data
+  - Market movers tracking
+  - Trending stocks
+  - Historical charts
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏗️ Architecture
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tech Stack
 
-### `npm run eject`
+**Frontend:**
+- Next.js 14
+- React 18
+- Tailwind CSS
+- Recharts
+- Axios
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Backend:**
+- FastAPI (Python)
+- SQLAlchemy ORM
+- PostgreSQL
+- JWT Authentication
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**AI & ML:**
+- OpenAI GPT-4
+- LangChain
+- CrewAI
+- Vector Database (ChromaDB/Pinecone)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Infrastructure:**
+- Docker
+- Docker Compose
+- RESTful APIs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Installation
 
-## Learn More
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Docker & Docker Compose
+- OpenAI API Key
+- (Optional) Stock API keys (Alpha Vantage, Finnhub, News API)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Quick Start
 
-### Code Splitting
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/financial-ai-platform.git
+cd financial-ai-platform
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+/////To run frontend + backend simultaneously://///
 
-### Analyzing the Bundle Size
+Backend (Terminal 1)
+cd backend
+.\..venv\Scripts\python -m uvicorn app.main_entry:app --host 0.0.0.0 --port 8000 --reload
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+cd backend && .\.venv\Scripts\python.exe -m uvicorn app.main_entry:app --host 0.0.0.0 --port 8000 --reload
+Frontend (Terminal 2)
+cd frontend
+npm install
+npm run dev
 
-### Making a Progressive Web App
+Then open the frontend URL printed by npm run dev (typically http://localhost:3000).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
