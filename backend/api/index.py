@@ -1,9 +1,11 @@
 import hashlib
 import hmac
+import base64
+import json
 import os
 import secrets
 import sqlite3
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -64,6 +66,20 @@ def verify_password(password: str, stored: str) -> bool:
     return hmac.compare_digest(digest.hex(), digest_hex)
 
 
+def create_session_token(user_id: int, username: str) -> str:
+    header = {"alg": "none", "typ": "JWT"}
+    payload = {
+        "sub": username,
+        "user_id": user_id,
+        "exp": int((datetime.now(timezone.utc) + timedelta(hours=12)).timestamp()),
+    }
+
+    def encode(value):
+        return base64.urlsafe_b64encode(json.dumps(value, separators=(",", ":")).encode()).rstrip(b"=").decode()
+
+    return f"{encode(header)}.{encode(payload)}.session"
+
+
 def user_response(row):
     return {
         "id": row["id"],
@@ -110,6 +126,6 @@ def login(payload: LoginRequest):
         row = connection.execute("SELECT * FROM users WHERE username = ?", (payload.username,)).fetchone()
         if not row or not verify_password(payload.password, row["password_hash"]):
             raise HTTPException(status_code=401, detail="Incorrect username or password")
-        return {"access_token": f"vercel-session-{row['id']}", "token_type": "bearer"}
+        return {"access_token": create_session_token(row["id"], row["username"]), "token_type": "bearer"}
     finally:
         connection.close()
