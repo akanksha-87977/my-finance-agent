@@ -31,7 +31,10 @@ class Settings(BaseSettings):
     PINECONE_ENVIRONMENT: str = ""
     
     # CORS
-    CORS_ORIGINS: List[str] = ["http://localhost:3000"]
+    CORS_ORIGINS: List[str] = [
+        "http://localhost:3000",
+        "https://frontend-alpha-six-62.vercel.app",
+    ]
     
     # App Port
     BACKEND_PORT: int = 8000
