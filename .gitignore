@@ -38,3 +38,5 @@ frontend/.next/
 
 # ignore local SQLite databases
 *.sqlite3
+
+.vercel
